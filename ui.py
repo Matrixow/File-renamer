@@ -5,7 +5,7 @@ class AppUI:
     def __init__(self, windowTitle):
         self.title = windowTitle
 
-    def select_folder():
+    def select_folder(self):
         folderPath = filedialog.askdirectory(title="Select a folder")
         if folderPath:
             print(f"Folder path is {folderPath}")
