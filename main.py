@@ -10,7 +10,7 @@ class ItemRenamer:
         items = []
         for item in os.listdir(self.directory):
             items.append(item)
-        return items
+        return str(items)
 
 re = ItemRenamer("/Users/ernest/Documents/Movies/Anime/Dr Stone/S03/Cour1")
 re.list_items()
