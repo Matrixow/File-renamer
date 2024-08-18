@@ -36,13 +36,16 @@ class AppUI:
     def runApp(self):
 
         self.window.title(self.title)
-        self.window.geometry("500x400")
+        self.window.geometry("500x500")
         self.window.resizable(False, False)
+        self.text_to_replace = tk.StringVar()
         # items_list_label_text = tk.StringVar(window)
 
         label = tk.Label(text="Select folder directory", font=self.font)
         select_button = tk.Button(text="Select a folder", command=self.select_folder, font=('Helvetica'))
         items_label = tk.Label(text="Items in selected directory", font=self.font)
+        chars_to_remove = tk.Entry(self.window, width=20)
+        chars_to_remove_label = tk.Label(text="Text to remove from files")
         rename_button = tk.Button(text="Rename files", command=lambda: IR(self.folderPath).rename_items("y2mate.com - "))
 
         label.pack()
@@ -50,7 +53,9 @@ class AppUI:
         items_label.pack(pady=10)
         self.frame.pack(pady=20, padx=20)
         self.text_widget.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        rename_button.pack(padx=50)
+        chars_to_remove_label.pack()
+        chars_to_remove.pack()
+        rename_button.pack(padx=50, pady=10)
         self.window.mainloop() 
 
 
