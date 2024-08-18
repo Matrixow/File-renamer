@@ -21,6 +21,8 @@ class ItemRenamer:
                 filename = file
                 newname = filename.replace(self.nametoremove, "")
                 os.rename(f"{self.directory}/{file}", newname)
+            else:
+                continue
 
 re = ItemRenamer("/Users/ernest/Documents/Movies/Anime/Dr Stone/S03/Cour1")
 re.list_items()
