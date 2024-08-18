@@ -27,11 +27,13 @@ class AppUI:
     def select_folder(self):
         self.folderPath = filedialog.askdirectory(title="Select a folder")
         if self.folderPath:
-            print(f"Folder path is {self.folderPath}")
-            print(IR(self.folderPath).list_items())
             self.set_StringVar(self.stringvar, IR(self.folderPath).list_items())
             self.update_text_widget()
 
+    def rename_files(self):
+        renamed = IR(self.folderPath).rename_items(self.chars_to_remove.get())
+        self.set_StringVar(self.stringvar, renamed)
+        self.update_text_widget()
 
     def runApp(self):
 
@@ -46,7 +48,7 @@ class AppUI:
         items_label = tk.Label(text="Items in selected directory", font=self.font)
         self.chars_to_remove = tk.Entry(self.window, width=20)
         chars_to_remove_label = tk.Label(text="Text to remove from files")
-        rename_button = tk.Button(text="Rename files", command=lambda: IR(self.folderPath).rename_items(self.chars_to_remove.get()))
+        rename_button = tk.Button(text="Rename files", command=self.rename_files)
 
         label.pack()
         select_button.pack(padx=20, pady=20, ipadx=10, ipady=10)

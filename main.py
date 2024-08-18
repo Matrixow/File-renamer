@@ -13,7 +13,7 @@ class ItemRenamer:
     
     def rename_items(self, nametoremove):
         self.nametoremove = nametoremove
-        matching_files = ""
+        matching_files = "Files renamed are: \n"
 
         os.chdir(self.directory)
         for file in os.listdir(self.directory):
@@ -24,7 +24,7 @@ class ItemRenamer:
                 os.rename(f"{self.directory}/{file}", newname)
             else:
                 continue
-        return "".join(matching_files.split("sep"))
+        return "\n".join(matching_files.split("sep"))
 
 re = ItemRenamer("/Users/ernest/Documents/Movies/Anime/Dr Stone/S03/Cour1")
 re.list_items()
