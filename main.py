@@ -25,6 +25,3 @@ class ItemRenamer:
             else:
                 continue
         return "\n".join(matching_files.split("sep"))
-
-re = ItemRenamer("/Users/ernest/Documents/Movies/Anime/Dr Stone/S03/Cour1")
-re.list_items()
