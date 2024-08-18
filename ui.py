@@ -20,7 +20,7 @@ class AppUI:
         self.text_widget.config(state=tk.NORMAL)
         self.text_widget.delete(1.0, tk.END)
         self.text_widget.insert(tk.END, self.stringvar.get())
-        self.text_widget.config(state=tk.NORMAL)
+        self.text_widget.config(state=tk.DISABLED)
 
 
     def select_folder(self):
@@ -29,6 +29,7 @@ class AppUI:
             print(f"Folder path is {folderPath}")
             print(IR(folderPath).list_items())
             self.set_StringVar(self.stringvar, IR(folderPath).list_items())
+            self.update_text_widget()
 
 
     def runApp(self):
@@ -41,9 +42,6 @@ class AppUI:
         label = tk.Label(text="Select folder directory", font=self.font)
         button = tk.Button(text="Select a folder", command=self.select_folder, font=('Helvetica'))
         items_label = tk.Label(text="Items in selected directory", font=self.font)
-        
-
-
 
         label.pack()
         button.pack(padx=20, pady=20, ipadx=10, ipady=10)
