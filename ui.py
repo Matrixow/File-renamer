@@ -44,9 +44,9 @@ class AppUI:
         label = tk.Label(text="Select folder directory", font=self.font)
         select_button = tk.Button(text="Select a folder", command=self.select_folder, font=('Helvetica'))
         items_label = tk.Label(text="Items in selected directory", font=self.font)
-        chars_to_remove = tk.Entry(self.window, width=20)
+        self.chars_to_remove = tk.Entry(self.window, width=20)
         chars_to_remove_label = tk.Label(text="Text to remove from files")
-        rename_button = tk.Button(text="Rename files", command=lambda: IR(self.folderPath).rename_items("y2mate.com - "))
+        rename_button = tk.Button(text="Rename files", command=lambda: IR(self.folderPath).rename_items(self.chars_to_remove.get()))
 
         label.pack()
         select_button.pack(padx=20, pady=20, ipadx=10, ipady=10)
@@ -54,7 +54,7 @@ class AppUI:
         self.frame.pack(pady=20, padx=20)
         self.text_widget.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         chars_to_remove_label.pack()
-        chars_to_remove.pack()
+        self.chars_to_remove.pack()
         rename_button.pack(padx=50, pady=10)
         self.window.mainloop() 
 
