@@ -44,7 +44,7 @@ Run ui.py and start the program
 ## Executable version 
 An executable version of this project can be found here by going to the link below
 
-## Download
+  ## Download
 You can download the project folder from Google Drive. Please use the link below to access and download the folder:
 
 [Download Project Folder](https://drive.google.com/drive/folders/1M81SfcZ3R2FLt2WG5tMN2sL1fNSn4y7r?usp=sharing)
