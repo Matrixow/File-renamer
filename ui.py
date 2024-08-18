@@ -53,3 +53,4 @@ class AppUI:
 
 app = AppUI("File renamer")
 app.runApp()
+
