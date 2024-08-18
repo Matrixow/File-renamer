@@ -1,5 +1,4 @@
 import os
-import glob
 import re
 
 class ItemRenamer:
@@ -20,12 +19,12 @@ class ItemRenamer:
         for file in os.listdir(self.directory):
             if self.nametoremove in file:
                 filename = file
-                matching_files += f" {filename}"
+                matching_files += f" sep{filename}"
                 newname = filename.replace(self.nametoremove, "")
                 os.rename(f"{self.directory}/{file}", newname)
             else:
                 continue
-        return matching_files
+        return "".join(matching_files.split("sep"))
 
 re = ItemRenamer("/Users/ernest/Documents/Movies/Anime/Dr Stone/S03/Cour1")
 re.list_items()

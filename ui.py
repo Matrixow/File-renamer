@@ -12,6 +12,7 @@ class AppUI:
         self.stringvar.set("Items go here")
         self.text_widget = tk.Text(self.frame, wrap=tk.WORD, font=("Helvetica", 14), width=40, height=10)
         self.text_widget.config(state=tk.DISABLED)
+        self.folderPath = ""
 
     def set_StringVar(self, stringvar, text):
         stringvar.set(text)
@@ -24,11 +25,11 @@ class AppUI:
 
 
     def select_folder(self):
-        folderPath = filedialog.askdirectory(title="Select a folder")
-        if folderPath:
-            print(f"Folder path is {folderPath}")
-            print(IR(folderPath).list_items())
-            self.set_StringVar(self.stringvar, IR(folderPath).list_items())
+        self.folderPath = filedialog.askdirectory(title="Select a folder")
+        if self.folderPath:
+            print(f"Folder path is {self.folderPath}")
+            print(IR(self.folderPath).list_items())
+            self.set_StringVar(self.stringvar, IR(self.folderPath).list_items())
             self.update_text_widget()
 
 
@@ -40,14 +41,16 @@ class AppUI:
         # items_list_label_text = tk.StringVar(window)
 
         label = tk.Label(text="Select folder directory", font=self.font)
-        button = tk.Button(text="Select a folder", command=self.select_folder, font=('Helvetica'))
+        select_button = tk.Button(text="Select a folder", command=self.select_folder, font=('Helvetica'))
         items_label = tk.Label(text="Items in selected directory", font=self.font)
+        rename_button = tk.Button(text="Rename files", command=lambda: IR(self.folderPath).rename_items("y2mate.com - "))
 
         label.pack()
-        button.pack(padx=20, pady=20, ipadx=10, ipady=10)
+        select_button.pack(padx=20, pady=20, ipadx=10, ipady=10)
         items_label.pack(pady=10)
         self.frame.pack(pady=20, padx=20)
         self.text_widget.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        rename_button.pack(padx=50)
         self.window.mainloop() 
 
 
