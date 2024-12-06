@@ -38,7 +38,7 @@ class AppUI:
     def runApp(self):
 
         self.window.title(self.title)
-        self.window.geometry("500x500")
+        self.window.geometry("700x600")
         self.window.resizable(False, False)
         self.text_to_replace = tk.StringVar()
         # items_list_label_text = tk.StringVar(window)
